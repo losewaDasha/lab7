@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <locale.h>
+#include <windows.h> 
+
+int main() {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    setlocale(LC_ALL, "Russian");
+
+    int num;
+    int last;
+
+    printf("Проверка последней цифры двузначного числа на простоту\n");
+    printf("Введите двузначное число (от 10 до 99): ");
+    scanf("%d", &num);
+
+    if (num < 10 || num > 99) {
+        printf("Ошибка: вы ввели не двузначное число.\n");
+        return 1;
+    }
+
+    last = num % 10;
+
+    switch (last) {
+    case 2:
+    case 3:
+    case 5:
+    case 7:
+        printf("Последняя цифра (%d) является простым числом.\n", last);
+        break;
+    default:
+        printf("Последняя цифра (%d) НЕ является простым числом.\n", last);
+        break;
+    }
+
+    return 0;
+}
